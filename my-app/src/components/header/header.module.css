@@ -1,0 +1,17 @@
+.header {
+  height: 75px;
+  margin-bottom: 15px;
+  padding-top: 25px;
+  width: 100%;
+}
+
+.header_logo {
+  width: 50px;
+  margin-top: -25px;
+}
+
+.header_heading {
+  display: inline;
+  margin: 0px;
+  font-family: "Borel", cursive;
+}
