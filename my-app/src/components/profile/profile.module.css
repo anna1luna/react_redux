@@ -28,8 +28,9 @@
   height: 85px;
   border: none;
   outline: none;
-  padding-left: 15px;
+  padding: 15px;
   margin-bottom: 15px;
+
 }
 .post_post {
   display: flex;
