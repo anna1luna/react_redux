@@ -1,4 +1,5 @@
 import s from "./side.module.css";
+import { NavLink } from "react-router-dom";
 
 const Side = () => {
   return (
@@ -6,34 +7,80 @@ const Side = () => {
       <ul className={s.ul}>
         <li className={s.item}>
           {" "}
-          <a className={`${s.link} ${s.active}`} href="/profile">
+          <NavLink
+            id="sidebar"
+            className={s.link}
+            style={({ isActive, isPending }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
+                color: isPending ? "red" : "black",
+              };
+            }}
+            to="/profile"
+          >
             Profile
-          </a>{" "}
+          </NavLink>{" "}
         </li>
         <li className={s.item}>
           {" "}
-          <a className={s.link} href="/messages">
+          <NavLink
+            className={s.link}
+            style={({ isActive, isPending }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
+                color: isPending ? "red" : "black",
+              };
+            }}
+            to="/messages"
+          >
             Messages
-          </a>{" "}
+          </NavLink>{" "}
         </li>
         <li className={s.item}>
           {" "}
-          <a className={s.link} href="/news">
+          <NavLink
+            className={s.link}
+            style={({ isActive, isPending }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
+                color: isPending ? "red" : "black",
+              };
+            }}
+            to="/news"
+          >
             News
-          </a>{" "}
+          </NavLink>{" "}
         </li>
         <li className={s.item}>
           {" "}
-          <a className={s.link} href="/music">
+          <NavLink
+            className={s.link}
+            style={({ isActive, isPending }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
+                color: isPending ? "red" : "black",
+              };
+            }}
+            to="/music"
+          >
             Music
-          </a>{" "}
+          </NavLink>{" "}
         </li>
         <br></br>
         <li className={s.item}>
           {" "}
-          <a className={s.link} href="/settings">
+          <NavLink
+            className={s.link}
+            style={({ isActive, isPending }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
+                color: isPending ? "" : "black",
+              };
+            }}
+            to="/settings"
+          >
             Settings
-          </a>{" "}
+          </NavLink>{" "}
         </li>
       </ul>
     </nav>
