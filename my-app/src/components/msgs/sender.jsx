@@ -2,6 +2,7 @@ import s from "./messages.module.css";
 import { NavLink } from "react-router-dom";
 
 const Sender = (props) => {
+  var path = "/messages/" + props.id;
   return (
     <ul>
       <li className={`${s.sender}`}>
@@ -12,89 +13,9 @@ const Sender = (props) => {
               color: isPending ? "red" : "#8190A5",
             };
           }}
-          to="/messages/1"
+          to={path}
         >
-          Anna
-        </NavLink>
-      </li>
-      <li className={`${s.sender}`}>
-        <NavLink
-          style={({ isActive, isPending }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
-              color: isPending ? "red" : "#8190A5",
-            };
-          }}
-          to="/messages/2"
-        >
-          Mama
-        </NavLink>
-      </li>
-      <li className={`${s.sender}`}>
-        <NavLink
-          style={({ isActive, isPending }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
-              color: isPending ? "red" : "#8190A5",
-            };
-          }}
-          to="/messages/3"
-        >
-          Papa
-        </NavLink>
-      </li>
-      <li className={`${s.sender}`}>
-        <NavLink
-          style={({ isActive, isPending }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
-              color: isPending ? "red" : "#8190A5",
-            };
-          }}
-          to="/messages/4"
-        >
-          Anton
-        </NavLink>
-      </li>
-      <li className={`${s.sender}`}>
-        <NavLink
-          style={({ isActive, isPending }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
-              color: isPending ? "red" : "#8190A5",
-            };
-          }}
-          to="/messages/5"
-        >
-          Anna KL
-        </NavLink>
-      </li>
-      <li className={`${s.sender}`}>
-        {" "}
-        <NavLink
-          style={({ isActive, isPending }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
-              color: isPending ? "red" : "#8190A5",
-            };
-          }}
-          to="/messages/6"
-        >
-          Aika
-        </NavLink>
-      </li>
-      <li className={`${s.sender}`}>
-        {" "}
-        <NavLink
-          style={({ isActive, isPending }) => {
-            return {
-              fontWeight: isActive ? "bold" : "",
-              color: isPending ? "red" : "#8190A5",
-            };
-          }}
-          to="/messages/7"
-        >
-          Luyda
+          {props.name}
         </NavLink>
       </li>
     </ul>
