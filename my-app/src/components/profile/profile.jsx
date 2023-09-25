@@ -8,12 +8,15 @@ const Profile = () => {
     { text: "Hello, World", likes: 20, id: 1 },
     { text: "My first post", likes: 10, id: 2 },
   ];
+
+  let NewsReady = NewsData.map((news) => (
+    <News text={news.text} like_count={news.likes} id={news.id} />
+  ));
   return (
     <div className={s.profile}>
       <Info />
       <Post />
-      <News text={NewsData[0].text} like_count={NewsData[0].likes} />
-      <News text={NewsData[1].text} like_count={NewsData[1].likes} />
+      {NewsReady}
     </div>
   );
 };

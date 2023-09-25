@@ -14,20 +14,10 @@ const Senders = () => {
     { id: 9, name: "Luyda" },
     { id: 10, name: "Nastya" },
   ];
-  return (
-    <div className={s.senders}>
-      <Sender name={SendersData[0].name} id={SendersData[0].id} />
-      <Sender name={SendersData[1].name} id={SendersData[1].id} />
-      <Sender name="Papa" id="3" />
-      <Sender name="Anton" id="4" />
-      <Sender name="Anna KL" id="5" />
-      <Sender name="Aika" id="6" />
-      <Sender name="Yara" id="7" />
-      <Sender name="Stas" id="8" />
-      <Sender name="Lyuda" id="9" />
-      <Sender name="Nastya" id="10" />
-    </div>
-  );
+  let SendersReady = SendersData.map((sender) => (
+    <Sender name={sender.name} id={sender.id} />
+  ));
+  return <div className={s.senders}>{SendersReady}</div>;
 };
 
 export default Senders;
