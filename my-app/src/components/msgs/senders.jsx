@@ -2,10 +2,22 @@ import s from "./messages.module.css";
 import Sender from "./sender";
 
 const Senders = () => {
+  let SendersData = [
+    { id: 1, name: "Anna" },
+    { id: 2, name: "Mama" },
+    { id: 3, name: "Papa" },
+    { id: 4, name: "Anton" },
+    { id: 5, name: "Anna KL" },
+    { id: 6, name: "Aika" },
+    { id: 7, name: "Yara" },
+    { id: 8, name: "Stas" },
+    { id: 9, name: "Luyda" },
+    { id: 10, name: "Nastya" },
+  ];
   return (
     <div className={s.senders}>
-      <Sender name="Anna" id="1" />
-      <Sender name="Mama" id="2" />
+      <Sender name={SendersData[0].name} id={SendersData[0].id} />
+      <Sender name={SendersData[1].name} id={SendersData[1].id} />
       <Sender name="Papa" id="3" />
       <Sender name="Anton" id="4" />
       <Sender name="Anna KL" id="5" />
