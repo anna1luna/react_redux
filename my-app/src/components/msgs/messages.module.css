@@ -23,7 +23,7 @@
 }
 .msg {
   display: grid;
-  grid-template-columns: 7% 93%;
+  grid-template-columns: 25% 75%;
   margin-bottom: 25px;
 }
 
@@ -43,4 +43,7 @@
   border-radius: 10px;
   height: auto;
   color: #8190A5;
+}
+.meClass {
+  padding-left: 100px;
 }
