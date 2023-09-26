@@ -47,6 +47,12 @@ let state = {
       { id: 10, name: "Nastya" },
     ],
   },
+  side: {
+    SideData:[
+    { name: "Anton" },
+    { name: "Mama"},
+    { name: "Anna" }
+  ]}
 };
 
 export default state;

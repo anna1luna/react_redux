@@ -13,7 +13,7 @@ const App = (props) => {
       <div>
         <Header />
         <div className="body">
-          <Side />
+          <Side SideData={props.appState.side.SideData} />
           <Routes>
             <Route path="/" element={<Profile NewsData={props.appState.profile.NewsData}/>} />
             <Route path="/profile" element={<Profile NewsData={props.appState.profile.NewsData}/>} />

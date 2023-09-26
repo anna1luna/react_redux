@@ -1,7 +1,10 @@
 import s from "./side.module.css";
 import { NavLink } from "react-router-dom";
+import Friends from "./friends";
 
-const Side = () => {
+const Side = (props) => {
+  const SideData = props.SideData;
+  let SideReady = SideData.map((friends) => <Friends name={friends.name} />);
   return (
     <nav className={`${s.side} bg-info-subtle`}>
       <ul className={s.ul}>
@@ -81,6 +84,12 @@ const Side = () => {
           >
             Settings
           </NavLink>{" "}
+        </li>
+        <br></br>
+        <br></br>
+        <li className={s.item}>
+          <p>Friends</p>
+          <div className={s.container}>{SideReady}</div>
         </li>
       </ul>
     </nav>

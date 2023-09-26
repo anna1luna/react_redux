@@ -13,3 +13,26 @@
 .link {
   text-decoration: none;
 }
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr ;
+  margin-left: -15px;
+  
+}
+
+.friend {
+  margin-right: 10px;
+}
+.avatar {
+  border-radius: 50%;
+  width: 70%;
+  padding: auto;
+  margin-left: 13px;
+  margin-bottom: 7px;
+}
+
+.name{
+  text-align: center;
+  font-weight: 700;
+}
