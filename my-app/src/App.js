@@ -8,9 +8,6 @@ import Music from "./components/music/music";
 import Settings from "./components/settings/settings";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 const App = (props) => {
-  const NewsData = props.NewsData
-  const MsgsData = props.MsgsData
-  const SendersData = props.SendersData
   return (
     <BrowserRouter>
       <div>
@@ -18,9 +15,9 @@ const App = (props) => {
         <div className="body">
           <Side />
           <Routes>
-            <Route path="/" element={<Profile NewsData={NewsData}/>} />
-            <Route path="/profile" element={<Profile NewsData={NewsData}/>} />
-            <Route path="/messages/*" element={<Messages MsgsData={MsgsData} SendersData={SendersData} />} />
+            <Route path="/" element={<Profile NewsData={props.appState.profile.NewsData}/>} />
+            <Route path="/profile" element={<Profile NewsData={props.appState.profile.NewsData}/>} />
+            <Route path="/messages/*" element={<Messages MsgsData={props.appState.messages.MsgsData} SendersData={props.appState.messages.SendersData} />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settings" element={<Settings />} />
