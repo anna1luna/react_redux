@@ -47,3 +47,16 @@
 .meClass {
   padding-left: 100px;
 }
+
+.field {
+  height: 100px;
+  width: 60%; 
+  border: 1px solid #C0CCDA;
+  border-radius: 10px;
+  padding: 15px;
+  
+}
+.button {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
