@@ -13,4 +13,5 @@ G -->G1[Senders];
 G -->G2[Msgs];
 G1-->G1_1[Sender];
 G2-->G2_2[Msg];
+E-->E1 [Friends]
 ```
