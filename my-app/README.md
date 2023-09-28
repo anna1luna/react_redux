@@ -1,6 +1,7 @@
 ```mermaid
 flowchart TD;
-0[Index.js is a BLL];
+00[React.js (Redux)]
+00 -->0[Index.js];
 A[App] -->B(Browser Router);
 B --> D[Header];
 B -->E[Side];
