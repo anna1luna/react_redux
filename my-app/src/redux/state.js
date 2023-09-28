@@ -3,7 +3,7 @@ let state = {
     NewsData: [
       { text: "Hello, World", likes: 20, id: 1 },
       { text: "My first post", likes: 10, id: 2 },
-      { text: "My second post", likes: 10, id: 2 },
+      { text: "My second post", likes: 10, id: 3 },
     ],
   },
   messages: {
@@ -54,5 +54,15 @@ let state = {
     { name: "Anna" }
   ]}
 };
+
+export let addPost = (post) => {
+  debugger;
+  let newPost = {
+    text: post,
+    likes: 0,
+    id: 4    
+  }
+  state.profile.NewsData.push(newPost)
+}
 
 export default state;

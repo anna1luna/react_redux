@@ -1,11 +1,12 @@
 import React from "react";
 import s from "./profile.module.css";
 
-const Post = () => {
+const Post = (props) => {
   let postData = React.createRef();
   let addPost = () => {
+    debugger;
     let post = postData.current.value;
-    alert(post);
+    props.addPost(post);
   };
   return (
     <div className={s.post}>
@@ -18,9 +19,7 @@ const Post = () => {
       ></textarea>
       <div className={s.post_post}>
         <button
-          onClick={() => {
-            addPost();
-          }}
+          onClick={addPost}
           type="button"
           className={`${s.post_btn} btn btn-success`}
         >
