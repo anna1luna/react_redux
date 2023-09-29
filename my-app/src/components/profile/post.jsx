@@ -4,9 +4,11 @@ import s from "./profile.module.css";
 const Post = (props) => {
   let postData = React.createRef();
   let addPost = () => {
+    props.addPost();
+  };
+  let onPostChange = () => {
     let text = postData.current.value;
-    props.addPost(text);
-    postData.current.value = "";
+    props.updNewPostText(text);
   };
   return (
     <div className={s.post}>
@@ -16,7 +18,9 @@ const Post = (props) => {
         type="text"
         placeholder="  what's new?"
         className={s.post_input}
-      ></textarea>
+        onChange={onPostChange}
+        value={props.postText}
+      />
       <div className={s.post_post}>
         <button
           onClick={addPost}
