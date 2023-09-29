@@ -1,3 +1,5 @@
+import { rerender } from "../render";
+
 let state = {
   profile: {
     NewsData: [
@@ -55,14 +57,14 @@ let state = {
   ]}
 };
 
-export let addPost = (post) => {
-  debugger;
+export let addPost = (postMessage) => {
   let newPost = {
-    text: post,
+    text: postMessage,
     likes: 0,
     id: 4    
   }
   state.profile.NewsData.push(newPost)
+  rerender(state)
 }
 
 export default state;

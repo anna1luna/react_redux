@@ -6,10 +6,9 @@ import Messages from "./components/msgs/messages";
 import News from "./components/news/news";
 import Music from "./components/music/music";
 import Settings from "./components/settings/settings";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 const App = (props) => {
   return (
-    <BrowserRouter>
       <div>
         <Header />
         <div className="body">
@@ -24,7 +23,6 @@ const App = (props) => {
           </Routes>
         </div>
       </div>
-    </BrowserRouter>
   );
 };
 

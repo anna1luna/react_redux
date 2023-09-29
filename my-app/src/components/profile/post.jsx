@@ -4,9 +4,9 @@ import s from "./profile.module.css";
 const Post = (props) => {
   let postData = React.createRef();
   let addPost = () => {
-    debugger;
-    let post = postData.current.value;
-    props.addPost(post);
+    let text = postData.current.value;
+    props.addPost(text);
+    postData.current.value = "";
   };
   return (
     <div className={s.post}>
