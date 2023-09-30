@@ -6,7 +6,7 @@ const Messages = (props) => {
   const MsgsData = props.MsgsData;
   const SendersData = props.SendersData;
   return (
-    <div>
+    <div className={s.messages}>
       <h2 className={s.heading}>Messages</h2>
       <div className={s.container}>
         <Senders SendersData={SendersData} />
