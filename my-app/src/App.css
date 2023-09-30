@@ -1,7 +1,7 @@
 .body {
   display: grid;
   grid-template-columns: 20% 80%;
-  font-family: "Heebo", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   background-color: #f7f8f9;
  
 }
