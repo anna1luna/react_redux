@@ -1,4 +1,6 @@
-import { rerender } from "../render";
+let rerender = () => {
+  console.log('1')
+}
 let state = {
   profile: {
     NewsData: [
@@ -6,7 +8,7 @@ let state = {
       { text: "My first post", likes: 10, id: 2 },
       { text: "My second post", likes: 10, id: 3 },
     ],
-    postText: 'bla bla bla'
+    postText: ''
   },
   messages: {
     MsgsData: [
@@ -57,7 +59,7 @@ let state = {
   ]}
 };
 
-export let addPost = () => {
+export const addPost = () => {
   let newPost = {
     text: state.profile.postText,
     likes: 0,
@@ -68,9 +70,13 @@ export let addPost = () => {
   rerender(state)
 }
 
-export let updNewPostText = (newText) => {
+export const updNewPostText = (newText) => {
   state.profile.postText = newText
   rerender(state)
+}
+
+export const subscribe = (observer) => {
+  rerender = observer
 }
 
 export default state;
