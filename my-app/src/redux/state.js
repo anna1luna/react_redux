@@ -1,8 +1,6 @@
-let rerender = () => {
-  console.log('1')
-}
-let state = {
-  profile: {
+let store = {
+  _state: {
+    profile: {
     NewsData: [
       { text: "Hello, World", likes: 20, id: 1 },
       { text: "My first post", likes: 10, id: 2 },
@@ -57,26 +55,32 @@ let state = {
     { name: "Mama"},
     { name: "Anna" }
   ]}
-};
-
-export const addPost = () => {
-  let newPost = {
-    text: state.profile.postText,
-    likes: 0,
-    id: 4    
-  }
-  state.profile.NewsData.push(newPost)
-  state.profile.postText = ''
-  rerender(state)
+  },
+  subscribe(observer) {
+    this._callSubscriber = observer;
+  },
+  _callSubscriber() {
+    console.log('1');
+  },
+  addPost() {
+    let newPost = {
+      text: this._state.profile.postText,
+      likes: 0,
+      id: 4    
+    }
+    this._state.profile.NewsData.push(newPost)
+    this._state.profile.postText = ''
+    this._callSubscriber(this._state)
+  
+  },
+  updNewPostText(newText) { 
+  this._state.profile.postText = newText
+  this._callSubscriber(this._state)
+  },
+  getState() {
+  return this._state;
 }
-
-export const updNewPostText = (newText) => {
-  state.profile.postText = newText
-  rerender(state)
 }
+export default store;
 
-export const subscribe = (observer) => {
-  rerender = observer
-}
-
-export default state;
+window.store = store
