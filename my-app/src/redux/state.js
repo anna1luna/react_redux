@@ -1,5 +1,4 @@
 import { rerender } from "../render";
-
 let state = {
   profile: {
     NewsData: [
@@ -7,7 +6,7 @@ let state = {
       { text: "My first post", likes: 10, id: 2 },
       { text: "My second post", likes: 10, id: 3 },
     ],
-    postText: ''
+    postText: 'bla bla bla'
   },
   messages: {
     MsgsData: [

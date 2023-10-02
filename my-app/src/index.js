@@ -1,4 +1,3 @@
-
 import reportWebVitals from './reportWebVitals';
 import { rerender } from './render';
 import state from './redux/state';
