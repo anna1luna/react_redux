@@ -65,7 +65,9 @@ let store = {
   getState() {
   return this._state;
   },
+  
   dispatch(action) {
+    
     if (action.type === 'ADD-POST') {
       let newPost = {
       text: this._state.profile.postText,
@@ -78,6 +80,14 @@ let store = {
     } else if (action.type === 'UPD-NEW-POST-TEXT') {
       this._state.profile.postText = action.newText
       this._callSubscriber(this._state)
+    } else if (action.type === 'ADD-LIKE') {
+      let postId = action.id
+      let postToLike = this._state.profile.NewsData.find(post => post.id === postId);
+      if (postToLike && !postToLike.likeAdded) {
+        postToLike.likes += 1;
+        postToLike.likeAdded = true;
+      this._callSubscriber(this._state);
+    }
     }
   }
 }

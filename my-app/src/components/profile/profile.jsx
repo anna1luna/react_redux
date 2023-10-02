@@ -6,7 +6,12 @@ import Info from "./info";
 const Profile = (props) => {
   const NewsData = props.NewsData;
   let NewsReady = NewsData.map((news) => (
-    <News text={news.text} like_count={news.likes} id={news.id} />
+    <News
+      text={news.text}
+      like_count={news.likes}
+      id={news.id}
+      dispatch={props.dispatch}
+    />
   ));
   return (
     <div className={s.profile}>
