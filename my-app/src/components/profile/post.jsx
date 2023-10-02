@@ -13,10 +13,10 @@ const Post = (props) => {
   return (
     <div className={s.post}>
       <h2 className={s.post_heading}>My posts</h2>
-      <textarea
+      <input
         ref={postData}
         type="text"
-        placeholder="  what's new?"
+        placeholder="what's new?"
         className={s.post_input}
         onChange={onPostChange}
         value={props.postText}

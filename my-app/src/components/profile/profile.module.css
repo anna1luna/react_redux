@@ -23,9 +23,8 @@
 }
 
 .post_input {
-  background-color: rgb(207, 244, 252);
+  box-shadow: rgba(0, 0, 0, 0.03) 14px 14px 54px 14px;
   width: 98%;
-  height: 85px;
   border: none;
   outline: none;
   padding: 15px;
