@@ -73,10 +73,15 @@ let store = {
       text: this._state.profile.postText,
       likes: 0,
       id: 4    
-    }
-    this._state.profile.NewsData.push(newPost)
-    this._state.profile.postText = ''
-    this._callSubscriber(this._state)
+      }
+      if (newPost.text.length > 0) {
+        this._state.profile.NewsData.push(newPost)
+        this._state.profile.postText = ''
+        this._callSubscriber(this._state)
+      } else {
+        alert('Please write something :-)')
+      }
+    
     } else if (action.type === 'UPD-NEW-POST-TEXT') {
       this._state.profile.postText = action.newText
       this._callSubscriber(this._state)
