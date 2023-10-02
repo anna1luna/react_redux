@@ -62,8 +62,12 @@ let store = {
   _callSubscriber() {
     console.log('1');
   },
-  addPost() {
-    let newPost = {
+  getState() {
+  return this._state;
+  },
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      let newPost = {
       text: this._state.profile.postText,
       likes: 0,
       id: 4    
@@ -71,15 +75,11 @@ let store = {
     this._state.profile.NewsData.push(newPost)
     this._state.profile.postText = ''
     this._callSubscriber(this._state)
-  
-  },
-  updNewPostText(newText) { 
-  this._state.profile.postText = newText
-  this._callSubscriber(this._state)
-  },
-  getState() {
-  return this._state;
-}
+    } else if (action.type === 'UPD-NEW-POST-TEXT') {
+      this._state.profile.postText = action.newText
+      this._callSubscriber(this._state)
+    }
+  }
 }
 export default store;
 

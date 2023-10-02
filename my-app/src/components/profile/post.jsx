@@ -4,11 +4,11 @@ import s from "./profile.module.css";
 const Post = (props) => {
   let postData = React.createRef();
   let addPost = () => {
-    props.addPost();
+    props.dispatch({ type: "ADD-POST" });
   };
   let onPostChange = () => {
     let text = postData.current.value;
-    props.updNewPostText(text);
+    props.dispatch({ type: "UPD-NEW-POST-TEXT", newText: text });
   };
   return (
     <div className={s.post}>
