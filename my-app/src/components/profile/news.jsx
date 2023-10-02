@@ -13,7 +13,7 @@ const News = (props) => {
           src="https://media.istockphoto.com/id/1361956153/photo/black-cat-sticking-out-tongue-funny-portrait.jpg?s=612x612&w=0&k=20&c=JtXn7BNTWl573nyjOJFsI99fXEjctnXsMz5zronzs5A="
           alt="avatar"
         ></img>
-        <p>{props.text}</p>
+        <p className={s.poster}>{props.text}</p>
         <div>
           <span>
             <svg
