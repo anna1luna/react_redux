@@ -1,3 +1,7 @@
+const ADD_POST = 'ADD-POST'
+const UPD_NEW_POST_TEXT = "UPD-NEW-POST-TEXT"
+const ADD_LIKE = "ADD-LIKE"
+
 let store = {
   _state: {
     profile: {
@@ -68,7 +72,7 @@ let store = {
   
   dispatch(action) {
     
-    if (action.type === 'ADD-POST') {
+    if (action.type === ADD_POST) {
       let newPost = {
       text: this._state.profile.postText,
       likes: 0,
@@ -82,10 +86,10 @@ let store = {
         alert('Please write something :-)')
       }
     
-    } else if (action.type === 'UPD-NEW-POST-TEXT') {
+    } else if (action.type === UPD_NEW_POST_TEXT) {
       this._state.profile.postText = action.newText
       this._callSubscriber(this._state)
-    } else if (action.type === 'ADD-LIKE') {
+    } else if (action.type === ADD_LIKE) {
       let postId = action.id
       let postToLike = this._state.profile.NewsData.find(post => post.id === postId);
       if (postToLike && !postToLike.likeAdded) {
@@ -95,6 +99,16 @@ let store = {
     }
     }
   }
+}
+
+export const addPostAC = () => {
+    return { type: ADD_POST };
+  };
+export const updNewPostTextAC = (text) => {
+    return { type: UPD_NEW_POST_TEXT, newText: text };
+  };
+export const addLikeAC = (currentId) => {
+  return {type: ADD_LIKE, id: currentId}
 }
 export default store;
 

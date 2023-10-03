@@ -5,11 +5,12 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import store from './redux/state';
+import { addPostAC, updNewPostTextAC, addLikeAC } from './redux/state';
 
 export let rerender = (state) => {
   ReactDOM.render(
   <BrowserRouter>
-      <App appState={state} dispatch={store.dispatch.bind(store) } />
+      <App appState={state} addPostAC={addPostAC} updNewPostTextAC={updNewPostTextAC} addLikeAC={addLikeAC} dispatch={store.dispatch.bind(store) } />
   </BrowserRouter>, document.getElementById('root')
 );
 }

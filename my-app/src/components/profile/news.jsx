@@ -3,7 +3,7 @@ import s from "./profile.module.css";
 const News = (props) => {
   let addLikes = () => {
     let currentId = props.id;
-    props.dispatch({ type: "ADD-LIKE", id: currentId });
+    props.dispatch(props.addLikeAC(currentId));
   };
   return (
     <div className={s.news}>

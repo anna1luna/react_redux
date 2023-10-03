@@ -11,12 +11,18 @@ const Profile = (props) => {
       like_count={news.likes}
       id={news.id}
       dispatch={props.dispatch}
+      addLikeAC={props.addLikeAC}
     />
   ));
   return (
     <div className={s.profile}>
       <Info />
-      <Post postText={props.postText} dispatch={props.dispatch} />
+      <Post
+        postText={props.postText}
+        dispatch={props.dispatch}
+        addPostAC={props.addPostAC}
+        updNewPostTextAC={props.updNewPostTextAC}
+      />
       {NewsReady}
     </div>
   );
