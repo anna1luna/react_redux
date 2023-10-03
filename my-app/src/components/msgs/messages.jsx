@@ -10,7 +10,13 @@ const Messages = (props) => {
       <h2 className={s.heading}>Messages</h2>
       <div className={s.container}>
         <Senders SendersData={SendersData} />
-        <Msgs MsgsData={MsgsData} />
+        <Msgs
+          MsgsData={MsgsData}
+          addMsgAC={props.addMsgAC}
+          dispatch={props.dispatch}
+          msgText={props.msgText}
+          updMsgTextAc={props.updMsgTextAc}
+        />
       </div>
     </div>
   );

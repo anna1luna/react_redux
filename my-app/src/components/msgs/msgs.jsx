@@ -17,25 +17,25 @@ const Msgs = (props) => {
     </div>
   ));
   let textData = React.createRef();
-  let send = () => {
+  let sendMsg = () => {
+    props.dispatch(props.addMsgAC());
+  };
+  let updMsgText = () => {
     let text = textData.current.value;
-    console.log(text);
+    props.dispatch(props.updMsgTextAc(text));
   };
   return (
     <div>
       <div>{MsgsReady}</div>
       <div className={s.sending}>
-        <textarea
+        <input
           ref={textData}
           className={s.field}
           placeholder="Type something..."
-        ></textarea>
-        <button
-          onClick={() => {
-            send();
-          }}
-          className={`${s.button} btn btn-primary`}
-        >
+          value={props.msgText}
+          onChange={updMsgText}
+        />
+        <button onClick={sendMsg} className={`${s.button} btn btn-primary`}>
           Send
         </button>
       </div>
