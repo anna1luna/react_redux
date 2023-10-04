@@ -5,7 +5,8 @@ import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import store from './redux/state';
-import { addPostAC, updNewPostTextAC, addLikeAC, addMsgAC, updMsgTextAc } from './redux/state';
+import { addPostAC, updNewPostTextAC, addLikeAC, } from './redux/profileReducer';
+import {addMsgAC, updMsgTextAc} from './redux/messagesReducer'
 
 export let rerender = (state) => {
   ReactDOM.render(
