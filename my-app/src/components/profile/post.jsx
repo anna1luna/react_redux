@@ -11,6 +11,11 @@ const Post = (props) => {
     let action = props.updNewPostTextAC(text);
     props.dispatch(action);
   };
+  const handleEnterKeyPress = (e) => {
+    if (e.key === "Enter") {
+      props.dispatch(props.addPostAC());
+    }
+  };
   return (
     <div className={s.post}>
       <h2 className={s.post_heading}>My posts</h2>
@@ -21,6 +26,7 @@ const Post = (props) => {
         className={s.post_input}
         onChange={onPostChange}
         value={props.postText}
+        onKeyPress={handleEnterKeyPress}
       />
       <div className={s.post_post}>
         <button

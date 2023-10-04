@@ -24,6 +24,11 @@ const Msgs = (props) => {
     let text = textData.current.value;
     props.dispatch(props.updMsgTextAc(text));
   };
+  const handleEnterKeyPress = (e) => {
+    if (e.key === "Enter") {
+      props.dispatch(props.addMsgAC());
+    }
+  };
   return (
     <div>
       <div>{MsgsReady}</div>
@@ -34,6 +39,7 @@ const Msgs = (props) => {
           placeholder="Type something..."
           value={props.msgText}
           onChange={updMsgText}
+          onKeyPress={handleEnterKeyPress}
         />
         <button onClick={sendMsg} className={`${s.button} btn btn-primary`}>
           Send
