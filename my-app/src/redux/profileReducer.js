@@ -14,10 +14,11 @@ let initialState = {
 const profileReducer = (state =initialState, action) => {
   switch (action.type) {
     case ADD_POST:
+      const highestId = Math.max(...state.NewsData.map((post) => post.id));
       let newPost = {
         text: state.postText,
         likes: 0,
-        id: 4,
+        id: highestId+1,
       };
       if (newPost.text.length > 0) {
         state.NewsData.push(newPost);
