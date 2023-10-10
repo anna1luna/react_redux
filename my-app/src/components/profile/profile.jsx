@@ -7,6 +7,7 @@ const Profile = (props) => {
   const NewsData = props.NewsData;
   let NewsReady = NewsData.map((news) => (
     <News
+      key={news.id}
       text={news.text}
       like_count={news.likes}
       id={news.id}

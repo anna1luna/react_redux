@@ -1,6 +1,6 @@
 import profileReducer from "./profileReducer";
 import messagesReducer from "./messagesReducer";
-import sideReducer from "./sideRecucer";
+import sideReducer from "./sideReducer";
 
 let store = {
   _state: {
