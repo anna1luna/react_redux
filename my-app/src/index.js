@@ -11,7 +11,7 @@ import {addMsgAC, updMsgTextAc} from './redux/messagesReducer'
 export let rerender = (state) => {
   ReactDOM.render(
   <BrowserRouter>
-      <App appState={state} addLikeAC={addLikeAC} addMsgAC={addMsgAC} updMsgTextAc={updMsgTextAc} dispatch={store.dispatch.bind(store) } />
+      <App appState={state} store={store} addLikeAC={addLikeAC} addMsgAC={addMsgAC} updMsgTextAc={updMsgTextAc} dispatch={store.dispatch.bind(store) } />
   </BrowserRouter>, document.getElementById('root')
 );
 }

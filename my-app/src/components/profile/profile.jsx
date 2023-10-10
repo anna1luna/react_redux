@@ -18,7 +18,7 @@ const Profile = (props) => {
   return (
     <div className={s.profile}>
       <Info />
-      <PostContainer postText={props.postText} dispatch={props.dispatch} />
+      <PostContainer store={props.store} />
       {NewsReady}
     </div>
   );
