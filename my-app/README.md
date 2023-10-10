@@ -1,6 +1,6 @@
 ```mermaid
 flowchart TD;
-00[state.js - Redux]
+00[reduxStore.js - Redux]
     00-->0[Index.js]
     A[App] -->0
 A[App] -->B(Browser Router);
