@@ -1,5 +1,5 @@
 import s from "./profile.module.css";
-import Post from "./post";
+import PostContainer from "./post/postContainer";
 import News from "./news";
 import Info from "./info";
 
@@ -18,12 +18,7 @@ const Profile = (props) => {
   return (
     <div className={s.profile}>
       <Info />
-      <Post
-        postText={props.postText}
-        dispatch={props.dispatch}
-        addPostAC={props.addPostAC}
-        updNewPostTextAC={props.updNewPostTextAC}
-      />
+      <PostContainer postText={props.postText} dispatch={props.dispatch} />
       {NewsReady}
     </div>
   );

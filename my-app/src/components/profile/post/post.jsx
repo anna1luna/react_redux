@@ -1,21 +1,16 @@
 import React from "react";
-import s from "./profile.module.css";
+import s from "./../profile.module.css";
 
 const Post = (props) => {
   let postData = React.createRef();
   let addPost = () => {
-    props.dispatch(props.addPostAC());
+    props.addPost();
   };
   let onPostChange = () => {
     let text = postData.current.value;
-    let action = props.updNewPostTextAC(text);
-    props.dispatch(action);
+    props.onPostChange(text);
   };
-  const handleEnterKeyPress = (e) => {
-    if (e.key === "Enter") {
-      props.dispatch(props.addPostAC());
-    }
-  };
+
   return (
     <div className={s.post}>
       <h2 className={s.post_heading}>My posts</h2>
@@ -26,7 +21,7 @@ const Post = (props) => {
         className={s.post_input}
         onChange={onPostChange}
         value={props.postText}
-        onKeyPress={handleEnterKeyPress}
+        onKeyPress={props.handleEnterKeyPress}
       />
       <div className={s.post_post}>
         <button
