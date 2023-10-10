@@ -1,9 +1,8 @@
-import s from "./profile.module.css";
+import s from "./../profile.module.css";
 
 const News = (props) => {
   let addLikes = () => {
-    let currentId = props.id;
-    props.dispatch(props.addLikeAC(currentId));
+    props.addLikes();
   };
   return (
     <div className={s.news}>

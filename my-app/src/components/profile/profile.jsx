@@ -1,18 +1,18 @@
 import s from "./profile.module.css";
 import PostContainer from "./post/postContainer";
-import News from "./news";
+import NewsContainer from "./news/newsContainer";
 import Info from "./info";
 
 const Profile = (props) => {
-  const NewsData = props.NewsData;
+  let state = props.store.getState();
+  const NewsData = state.profile.NewsData;
   let NewsReady = NewsData.map((news) => (
-    <News
+    <NewsContainer
       key={news.id}
       text={news.text}
       like_count={news.likes}
       id={news.id}
-      dispatch={props.dispatch}
-      addLikeAC={props.addLikeAC}
+      store={props.store}
     />
   ));
   return (
