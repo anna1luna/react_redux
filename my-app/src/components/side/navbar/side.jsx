@@ -1,11 +1,7 @@
-import s from "./side.module.css";
+import s from "./../side.module.css";
 import { NavLink } from "react-router-dom";
-import Friends from "./friends";
 
 const Side = (props) => {
-  const SideData = props.SideData;
-  let SideReady = SideData.map((friends) => <Friends name={friends.name} />);
-
   return (
     <nav className={`${s.side}`}>
       <div className={s.logo}>
@@ -159,7 +155,7 @@ const Side = (props) => {
             />
             Friends
           </p>
-          <div className={s.container}>{SideReady}</div>
+          <div className={s.container}>{props.SideReady}</div>
         </li>
       </ul>
     </nav>

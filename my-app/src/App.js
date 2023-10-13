@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/header/header";
-import Side from "./components/side/side";
-import Profile from "./components/profile/profile";
+import SideContainer from "./components/side/navbar/sideContainer";
+import ProfileContainer from "./components/profile/profile/profileContainer";
 import Messages from "./components/msgs/messages";
 import News from "./components/news/news";
 import Music from "./components/music/music";
@@ -12,19 +12,11 @@ const App = (props) => {
     <div>
       <Header />
       <div className="body">
-        <Side SideData={props.appState.side.SideData} />
+        <SideContainer />
         <Routes>
-          <Route path="/" element={<Profile store={props.store} />} />
-          <Route path="/profile" element={<Profile store={props.store} />} />
-          <Route
-            path="/messages/*"
-            element={
-              <Messages
-                store={props.store}
-                SendersData={props.appState.messages.SendersData}
-              />
-            }
-          />
+          <Route path="/" element={<ProfileContainer />} />
+          <Route path="/profile" element={<ProfileContainer />} />
+          <Route path="/messages/*" element={<Messages />} />
           <Route path="/news" element={<News />} />
           <Route path="/music" element={<Music />} />
           <Route path="/settings" element={<Settings />} />
