@@ -4,9 +4,10 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
 import store from "./redux/reduxStore";
-import { Provider } from "./storeContext";
-export let rerender = (state) => {
+export let rerender = () => {
+  debugger;
   ReactDOM.render(
     <BrowserRouter>
       <Provider store={store}>

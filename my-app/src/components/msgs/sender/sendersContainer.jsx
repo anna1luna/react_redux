@@ -1,20 +1,11 @@
-import Sender from "../sender";
 import Senders from "./senders";
-import storeContext from "../../../storeContext";
+import { connect } from "react-redux";
 
-const SendersContainer = (props) => {
-  return (
-    <storeContext.Consumer>
-      {(store) => {
-        const state = store.getState();
-        const SendersData = state.messages.SendersData;
-        let SendersReady = SendersData.map((sender) => (
-          <Sender name={sender.name} id={sender.id} />
-        ));
-        return <Senders SendersReady={SendersReady} />;
-      }}
-    </storeContext.Consumer>
-  );
+const mapStateToProps = (state) => {
+  return {
+    SendersData: state.messages.SendersData,
+  };
 };
+const SendersContainer = connect(mapStateToProps)(Senders);
 
 export default SendersContainer;

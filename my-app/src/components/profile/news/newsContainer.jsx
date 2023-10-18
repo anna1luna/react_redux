@@ -1,25 +1,22 @@
 import News from "./news";
 import { addLikeAC } from "./../../../redux/profileReducer";
-import storeContext from "../../../storeContext";
+import { connect } from "react-redux";
 
-const NewsContainer = (props) => {
-  return (
-    <storeContext.Consumer>
-      {(store) => {
-        let addLikes = () => {
-          let currentId = props.id;
-          store.dispatch(addLikeAC(currentId));
-        };
-        return (
-          <News
-            text={props.text}
-            like_count={props.like_count}
-            addLikes={addLikes}
-          />
-        );
-      }}
-    </storeContext.Consumer>
-  );
+const mapStateToProps = (state) => {
+  return {
+    text: state.profile.NewsData.text,
+    like_count: state.profile.NewsData.likes,
+    id: state.profile.NewsData.id,
+  };
 };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addLikes: (id) => {
+      dispatch(addLikeAC(id));
+    },
+  };
+};
+
+const NewsContainer = connect(mapStateToProps, mapDispatchToProps)(News);
 
 export default NewsContainer;

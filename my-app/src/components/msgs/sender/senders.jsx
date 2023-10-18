@@ -1,7 +1,11 @@
 import s from "./../messages.module.css";
+import Sender from "../sender";
 
 const Senders = (props) => {
-  return <div className={s.senders}>{props.SendersReady}</div>;
+  let SendersReady = props.SendersData.map((sender) => (
+    <Sender name={sender.name} id={sender.id} />
+  ));
+  return <div className={s.senders}>{SendersReady}</div>;
 };
 
 export default Senders;

@@ -1,25 +1,8 @@
-import storeContext from "../../../storeContext";
-import NewsContainer from "../news/newsContainer";
 import Profile from "./profile";
+import { connect } from "react-redux";
 
-const ProfileContainer = (props) => {
-  return (
-    <storeContext.Consumer>
-      {(store) => {
-        let state = store.getState();
-        const NewsData = state.profile.NewsData;
-        let NewsReady = NewsData.map((news) => (
-          <NewsContainer
-            key={news.id}
-            text={news.text}
-            like_count={news.likes}
-            id={news.id}
-          />
-        ));
-        return <Profile NewsReady={NewsReady} />;
-      }}
-    </storeContext.Consumer>
-  );
+const mapStateToProps = (state) => {
+  return { NewsData: state.profile.NewsData };
 };
-
+const ProfileContainer = connect(mapStateToProps)(Profile);
 export default ProfileContainer;
