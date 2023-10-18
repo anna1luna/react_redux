@@ -4,9 +4,7 @@ import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
   return {
-    text: state.profile.NewsData.text,
-    like_count: state.profile.NewsData.likes,
-    id: state.profile.NewsData.id,
+    NewsData: state.profile.NewsData,
   };
 };
 const mapDispatchToProps = (dispatch) => {
