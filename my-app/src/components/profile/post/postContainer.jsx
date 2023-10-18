@@ -22,7 +22,6 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
-console.log(mapStateToProps);
 
 const PostContainer = connect(mapStateToProps, mapDispatchToProps)(Post);
 export default PostContainer;

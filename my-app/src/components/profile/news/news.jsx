@@ -2,7 +2,7 @@ import s from "./../profile.module.css";
 
 const News = (props) => {
   let addLikes = () => {
-    props.addLikes();
+    props.addLikes(props.id);
   };
   return (
     <div className={s.news}>

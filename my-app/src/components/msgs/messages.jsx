@@ -3,7 +3,6 @@ import MsgsContainer from "./msgs/msgsContainer";
 import SendersContainer from "./sender/sendersContainer";
 
 const Messages = (props) => {
-  debugger;
   return (
     <div className={s.messages}>
       <h2 className={s.heading}>Messages</h2>
