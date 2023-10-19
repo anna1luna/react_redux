@@ -4,7 +4,7 @@ import Friends from "../friends";
 
 const Side = (props) => {
   let SideReady = props.SideData.map((friends) => (
-    <Friends name={friends.name} />
+    <Friends name={friends.name} key={friends.id} id={friends.id} />
   ));
   return (
     <nav className={`${s.side}`}>
