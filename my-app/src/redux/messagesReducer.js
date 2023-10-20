@@ -62,11 +62,11 @@ const messagesReducer = (state = initialState, action) => {
       return stateCopy;
     }
 
-    case UPD_MSG_TEXT: {
-      let stateCopy = { ...state };
-      stateCopy.msgText = action.newMsg;
-      return stateCopy;
-    }
+    case UPD_MSG_TEXT:
+      return {
+        ...state,
+        msgText: action.newMsg,
+      };
 
     default:
       return state;

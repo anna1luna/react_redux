@@ -3,9 +3,10 @@ let initialState = {
 };
 
 const sideReducer = (state = initialState, action) => {
-  let stateCopy = { ...state };
-  stateCopy.SideData = [...state.SideData];
-  return stateCopy;
+  return {
+    ...state,
+    ...state.SideData,
+  };
 };
 
 export default sideReducer;

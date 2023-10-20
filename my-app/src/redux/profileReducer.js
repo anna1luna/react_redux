@@ -31,11 +31,11 @@ const profileReducer = (state = initialState, action) => {
       return stateCopy;
     }
 
-    case UPD_NEW_POST_TEXT: {
-      const stateCopy = { ...state };
-      stateCopy.postText = action.newText;
-      return stateCopy;
-    }
+    case UPD_NEW_POST_TEXT:
+      return {
+        ...state,
+        postText: action.newText,
+      };
 
     case ADD_LIKE: {
       const stateCopy = { ...state };
