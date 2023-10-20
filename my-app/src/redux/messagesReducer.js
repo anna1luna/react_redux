@@ -46,22 +46,23 @@ let initialState = {
 const messagesReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE: {
-      let stateCopy = { ...state };
-      stateCopy.MsgsData = [...state.MsgsData];
       let newMsg = {
         name: "Me",
-        text: stateCopy.msgText,
+        text: state.msgText,
         id: 6,
       };
+
       if (newMsg.text.length > 0) {
-        stateCopy.MsgsData.push(newMsg);
-        stateCopy.msgText = "";
+        return {
+          ...state,
+          MsgsData: [...state.MsgsData, newMsg],
+          msgText: "",
+        };
       } else {
         alert("Please write something :-)");
+        return state; // Return the original state if the message is empty
       }
-      return stateCopy;
     }
-
     case UPD_MSG_TEXT:
       return {
         ...state,

@@ -14,21 +14,22 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_POST: {
-      const stateCopy = { ...state };
-      stateCopy.NewsData = [...state.NewsData];
-      const highestId = Math.max(...stateCopy.NewsData.map((post) => post.id));
+      const highestId = Math.max(state.NewsData.map((post) => post.id));
       let newPost = {
-        text: stateCopy.postText,
+        text: state.postText,
         likes: 0,
         id: highestId + 1,
       };
       if (newPost.text.length > 0) {
-        stateCopy.NewsData.push(newPost);
-        stateCopy.postText = "";
+        return {
+          ...state,
+          NewsData: [...state.NewsData, newPost],
+          postText: "",
+        };
       } else {
         alert("Please write something :-)");
+        return state;
       }
-      return stateCopy;
     }
 
     case UPD_NEW_POST_TEXT:
@@ -39,11 +40,11 @@ const profileReducer = (state = initialState, action) => {
 
     case ADD_LIKE: {
       const stateCopy = { ...state };
-      stateCopy.NewsData = stateCopy.NewsData.map((post) => ({ ...post })); // Create a shallow copy of the array
+      stateCopy.NewsData = stateCopy.NewsData.map((post) => ({ ...post }));
       let postId = action.id;
       let postIndex = stateCopy.NewsData.findIndex(
         (post) => post.id === postId
-      ); // Use findIndex to get the index of the post
+      );
       let postToLike = stateCopy.NewsData[postIndex];
       if (!postToLike.likeAdded) {
         postToLike.likes += 1;
