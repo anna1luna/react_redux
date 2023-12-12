@@ -6,9 +6,11 @@ flowchart TD;
     A[App] -->0
 A[App] -->B(Browser Router);
 B --> D[Header];
+B --> C[UsersContainer]
 B -->E[SideContainer];
 B -->F[ProfileContainer];
 B -->G[Messages];
+C-->C1[Users]
 F[ProfileContainer] -->FF[Profile]
 FF -->F1[Info];
 FF -->F2[PostContainer];
@@ -24,7 +26,6 @@ EE -->E1[Friends]
  G2  --> G2_2[Msgs];
  G2_2 --> G_2_2[Msg]
  A[App] --->A1[StoreContext]
-
 
 
 ```
