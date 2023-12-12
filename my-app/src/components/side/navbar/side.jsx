@@ -117,6 +117,30 @@ const Side = (props) => {
             Music
           </NavLink>{" "}
         </li>
+        <li className={s.item}>
+          {" "}
+          <NavLink
+            className={s.link}
+            style={({ isActive, isPending }) => {
+              return {
+                fontWeight: isActive ? "bold" : "",
+                color: isPending ? "red" : "rgb(111, 127, 146)",
+              };
+            }}
+            to="/users"
+          >
+            <img
+              src="https://www.svgrepo.com/show/472886/users.svg"
+              alt="users"
+              style={{
+                marginRight: "8px",
+                width: "20px",
+                height: "20px",
+              }}
+            />
+            Users
+          </NavLink>{" "}
+        </li>
         <br></br>
         <li className={s.item}>
           {" "}
