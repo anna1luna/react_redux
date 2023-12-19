@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 
 let Users = (props) => {
-  useEffect(() => {
+  let getUsers = () => {
     if (props.UsersData.length === 0) {
       axios
         .get("https://social-network.samuraijs.com/api/1.0/users")
@@ -14,7 +14,8 @@ let Users = (props) => {
           console.error("Axios Error:", error.message);
         });
     }
-  }, [props.UsersData, props.setUsers]);
+  };
+
   let follow = (userId) => {
     props.follow(userId);
   };
@@ -53,9 +54,13 @@ let Users = (props) => {
       </div>
     </div>
   ));
+
   return (
     <div className={s.users}>
       <h2 className={s.heading}>Users</h2>
+      <button className={`${s.explorer} btn btn-primary`} onClick={getUsers}>
+        Explore the World
+      </button>
       <div className={s.container}>
         <div className={s.readyContainer}>{usersReady}</div>
       </div>
