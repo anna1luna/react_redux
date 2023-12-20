@@ -3,20 +3,16 @@ import React from "react";
 import axios from "axios";
 
 class Users extends React.Component {
-  constructor(props) {
-    super(props);
-    if (this.props.UsersData.length === 0) {
-      axios
-        .get("https://social-network.samuraijs.com/api/1.0/users")
-        .then((response) => {
-          this.props.setUsers(response.data.items);
-        })
-        .catch((error) => {
-          console.error("Axios Error:", error.message);
-        });
-    }
+  componentDidMount() {
+    axios
+      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .then((response) => {
+        this.props.setUsers(response.data.items);
+      })
+      .catch((error) => {
+        console.error("Axios Error:", error.message);
+      });
   }
-
   follow = (userId) => {
     this.props.follow(userId);
   };
