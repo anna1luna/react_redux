@@ -7,9 +7,7 @@
   margin-bottom: 30px;
 }
 
-.container {
 
-}
 .userContainer { 
   display: grid;
   grid-template-columns: 15% 80%;
@@ -46,10 +44,6 @@
   height: auto;
 }
 
-.readyContainer {
-
-}
-
 .avatar{
   object-fit: cover;
   border-radius: 50%;
@@ -74,4 +68,11 @@
 
 .empty {
   background-color: white;
+}
+
+.loader {
+  width: 35px;
+  height: 35px;
+  margin-bottom: 20px;
+  margin-left: 45%;
 }

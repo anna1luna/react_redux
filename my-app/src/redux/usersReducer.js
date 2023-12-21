@@ -6,12 +6,14 @@ const SET_CP = "SET-CP";
 const PREV = "PREV";
 const NEXT = "NEXT";
 const SET_TOTAL_USERS_COUNT = "SET-TOTAL-USERS-COUNT";
+const TOGGLE_FETCHING = "TOGGLE-FETCHING";
 
 let initialState = {
   UsersData: [],
   pageSize: 5,
   totalUsersCount: 0,
   currentPage: 1,
+  isFetching: false,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -66,6 +68,9 @@ const userReducer = (state = initialState, action) => {
     case SET_CP: {
       return { ...state, currentPage: action.currentPage };
     }
+    case TOGGLE_FETCHING: {
+      return { ...state, isFetching: action.isFetching };
+    }
 
     default:
       return state;
@@ -95,6 +100,9 @@ export const prevAC = (currentPage) => {
 };
 export const nextAC = (currentPage) => {
   return { type: NEXT, currentPage: currentPage };
+};
+export const toggleFetchingAC = (isFetching) => {
+  return { type: TOGGLE_FETCHING, isFetching };
 };
 
 export default userReducer;

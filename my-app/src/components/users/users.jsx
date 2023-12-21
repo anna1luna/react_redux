@@ -1,3 +1,4 @@
+import Preloader from "../preloader/preloader";
 import s from "./users.module.css";
 import React from "react";
 
@@ -43,7 +44,7 @@ const Users = (props) => {
       </div>
       <div className={s.dataContainer}>
         <p className={s.data}>{user.name}</p>
-        <p className={s.data}>{"user.location.city"},</p>
+        <p className={s.data}>{"user.location.city"}</p>
         <p className={s.data}>
           {user.status ?? "There could have been a status"}
         </p>
@@ -55,7 +56,7 @@ const Users = (props) => {
   return (
     <div className={s.users}>
       <h2 className={s.heading}>Users</h2>
-
+      {props.isFetching ? <Preloader /> : null}
       <div className={s.container}>
         <div className={s.readyContainer}>{usersReady}</div>
       </div>
