@@ -54,8 +54,7 @@ class Users extends React.Component {
     const nextPage = this.props.currentPage + 1;
     if (
       nextPage <= Math.ceil(this.props.totalUsersCount / this.props.pageSize)
-    );
-    {
+    ) {
       this.props.next(nextPage);
       axios
         .get(
