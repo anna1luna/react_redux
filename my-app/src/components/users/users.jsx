@@ -1,10 +1,10 @@
 import Preloader from "../preloader/preloader";
 import s from "./users.module.css";
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-
   let pages = [];
   for (let i = 1; i <= pagesCount; i++) {
     pages.push(i);
@@ -63,31 +63,39 @@ const Users = (props) => {
       <nav aria-label="Page navigation">
         <ul className={`pagination ${s.navigation}`}>
           <li className={`page-item`}>
-            <a className={`page-link`} onClick={props.prev()} href="#">
+            <NavLink
+              className={`page-link`}
+              onClick={props.prev()}
+              to={`/users/${props.currentPage - 1}`}
+            >
               Previous
-            </a>
+            </NavLink>
           </li>
           {Array.from(
             { length: endPage - startPage + 1 },
             (_, index) => startPage + index
           ).map((p) => (
             <li key={p} className={`page-item`}>
-              <a
+              <NavLink
                 className={`${
                   props.currentPage === p ? s.selected : ""
                 } page-link`}
-                href="#"
+                to={`/users/${p}`}
                 onClick={props.onPageChanged(p)}
               >
                 {p}
-              </a>
+              </NavLink>
             </li>
           ))}
 
           <li className={`page-item`}>
-            <a className={`page-link`} onClick={props.next()} href="#">
+            <NavLink
+              className={`page-link`}
+              onClick={props.next()}
+              to={`/users/${props.currentPage + 1}`}
+            >
               Next
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>

@@ -20,7 +20,7 @@ const App = (props) => {
           <Route path="/messages/*" element={<Messages />} />
           <Route path="/news" element={<News />} />
           <Route path="/music" element={<Music />} />
-          <Route path="/users" element={<UsersContainer />} />
+          <Route path="/users/*" element={<UsersContainer />} />
           <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
