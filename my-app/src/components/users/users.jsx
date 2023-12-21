@@ -2,6 +2,7 @@ import Preloader from "../preloader/preloader";
 import s from "./users.module.css";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "aos/dist/aos.css";
 
 const Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -56,49 +57,58 @@ const Users = (props) => {
   return (
     <div className={s.users}>
       <h2 className={s.heading}>Users</h2>
-      {props.isFetching ? <Preloader /> : null}
-      <div className={s.container}>
-        <div className={s.readyContainer}>{usersReady}</div>
-      </div>
-      <nav aria-label="Page navigation">
-        <ul className={`pagination ${s.navigation}`}>
-          <li className={`page-item`}>
-            <NavLink
-              className={`page-link`}
-              onClick={props.prev()}
-              to={`/users/${props.currentPage - 1}`}
-            >
-              Previous
-            </NavLink>
-          </li>
-          {Array.from(
-            { length: endPage - startPage + 1 },
-            (_, index) => startPage + index
-          ).map((p) => (
-            <li key={p} className={`page-item`}>
-              <NavLink
-                className={`${
-                  props.currentPage === p ? s.selected : ""
-                } page-link`}
-                to={`/users/${p}`}
-                onClick={props.onPageChanged(p)}
-              >
-                {p}
-              </NavLink>
-            </li>
-          ))}
+      {props.isFetching ? (
+        <Preloader />
+      ) : (
+        <div className={s.container}>
+          <div
+            className={s.readyContainer}
+            data-aos="fade-up"
+            data-aos-duration="1500"
+          >
+            {usersReady}
+          </div>
+          <nav aria-label="Page navigation">
+            <ul className={`pagination ${s.navigation}`}>
+              <li className={`page-item`}>
+                <NavLink
+                  className={`page-link`}
+                  onClick={props.prev()}
+                  to={`/users/${props.currentPage - 1}`}
+                >
+                  Previous
+                </NavLink>
+              </li>
+              {Array.from(
+                { length: endPage - startPage + 1 },
+                (_, index) => startPage + index
+              ).map((p) => (
+                <li key={p} className={`page-item`}>
+                  <NavLink
+                    className={`${
+                      props.currentPage === p ? s.selected : ""
+                    } page-link`}
+                    to={`/users/${p}`}
+                    onClick={props.onPageChanged(p)}
+                  >
+                    {p}
+                  </NavLink>
+                </li>
+              ))}
 
-          <li className={`page-item`}>
-            <NavLink
-              className={`page-link`}
-              onClick={props.next()}
-              to={`/users/${props.currentPage + 1}`}
-            >
-              Next
-            </NavLink>
-          </li>
-        </ul>
-      </nav>
+              <li className={`page-item`}>
+                <NavLink
+                  className={`page-link`}
+                  onClick={props.next()}
+                  to={`/users/${props.currentPage + 1}`}
+                >
+                  Next
+                </NavLink>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      )}
     </div>
   );
 };

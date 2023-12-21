@@ -8,7 +8,12 @@ import Music from "./components/music/music";
 import Settings from "./components/settings/settings";
 import UsersContainer from "./components/users/usersContainer";
 import { Route, Routes } from "react-router-dom";
+import AOS from "aos";
+import { useEffect } from "react";
 const App = (props) => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div>
       <Header />
